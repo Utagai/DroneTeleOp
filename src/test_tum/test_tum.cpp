@@ -68,12 +68,12 @@ void move(ros::Publisher mainPub, ros::Publisher landPub, ros::Publisher takeOff
 
 		ROS_INFO_STREAM("Published message.");
 		i++;
-		if(i > 50){
-			landPub.publish(landingmsg);
-			ROS_INFO_STREAM("Published landing.");		
-		}
+	//	if(i > 50){
+	//		landPub.publish(landingmsg);
+	//		ROS_INFO_STREAM("Published landing.");		
+	//	}
 		someRate.sleep();
-		if(i > 50){
+		if(i > 10){
 			break;
 		}
 	}
