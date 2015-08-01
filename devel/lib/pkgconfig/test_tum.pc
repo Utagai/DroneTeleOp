@@ -1,0 +1,8 @@
+prefix=/home/may/Desktop/Tree/Programming/ros/test_tum/devel
+
+Name: test_tum
+Description: Description of test_tum
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib 
+Requires: 

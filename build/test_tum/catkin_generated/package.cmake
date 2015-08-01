@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "test_tum")
+set(test_tum_MAINTAINER "may <may@todo.todo>")
+set(test_tum_DEPRECATED "")
+set(test_tum_VERSION "0.0.0")
+set(test_tum_BUILD_DEPENDS "roscpp" "geometry_msgs" "std_msgs")
+set(test_tum_RUN_DEPENDS "roscpp" "geometry_msgs" "std_msgs")
+set(test_tum_BUILDTOOL_DEPENDS "catkin")

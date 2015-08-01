@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/may/Desktop/Tree/Programming/ros/test_tum/src/test_tum/test_tum.cpp
+ros/ros.h
+-
+geometry_msgs/Twist.h
+-
+std_msgs/Empty.h
+-
+stdio.h
+-
+unistd.h
+-
+termios.h
+-
+iostream
+-
+

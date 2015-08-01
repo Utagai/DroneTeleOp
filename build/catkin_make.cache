@@ -1,0 +1,2 @@
+test_tum
+-DCATKIN_DEVEL_PREFIX=/home/may/Desktop/Tree/Programming/ros/test_tum/devel -DCMAKE_INSTALL_PREFIX=/home/may/Desktop/Tree/Programming/ros/test_tum/install -G Unix Makefiles
