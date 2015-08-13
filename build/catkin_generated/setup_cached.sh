@@ -8,5 +8,5 @@
 
 # modified environment variables
 export LD_LIBRARY_PATH="/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib/x86_64-linux-gnu:/opt/ros/indigo/lib/x86_64-linux-gnu:/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib:/opt/ros/indigo/lib"
-export PKG_CONFIG_PATH="/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib/x86_64-linux-gnu/pkgconfig:/opt/ros/indigo/lib/x86_64-linux-gnu/pkgconfig:/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib/pkgconfig:/opt/ros/indigo/lib/pkgconfig"
+export PKG_CONFIG_PATH="/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib/x86_64-linux-gnu/pkgconfig:/opt/ros/indigo/lib/x86_64-linux-gnu/pkgconfig:/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib/pkgconfig:/opt/ros/indigo/lib/pkgconfig:/usr/local/lib/pkgconfig"
 export PWD="/home/may/Desktop/Tree/Programming/ros/test_tum/build"

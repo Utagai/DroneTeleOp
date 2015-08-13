@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/test_tum.dir/test_tum.cpp.o"
-  "test_tum.pdb"
-  "test_tum"
+  "/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib/test_tum/test_tum.pdb"
+  "/home/may/Desktop/Tree/Programming/ros/test_tum/devel/lib/test_tum/test_tum"
 )
 
 # Per-language clean rules from dependency scanning.

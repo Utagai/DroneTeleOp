@@ -19,6 +19,7 @@ int main(int argc, char **argv){
 	ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
 	ros::Rate rate(20);
 
+
 	struct termios old_tio, new_tio;
 	unsigned char c;
 
@@ -27,13 +28,13 @@ int main(int argc, char **argv){
 
 	new_tio.c_lflag &=(~ICANON & ~ECHO);
 
-	tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);
+	tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);	
 
 	do{
 		c=getchar();
 		std::cout << c << std::endl;	
 		move(pub, landPub, takeOffPub, rate, c);
-	} while (c != 'q');
+	} while (c != 'p');
 
 	tcsetattr(STDIN_FILENO, TCSANOW, &old_tio);
 }
@@ -41,7 +42,6 @@ int main(int argc, char **argv){
 void move(ros::Publisher mainPub, ros::Publisher landPub, ros::Publisher takeOffPub, 
 		ros::Rate someRate, char direction){
 	geometry_msgs::Twist msg;
-	std_msgs::Empty takeoffmsg;
 	std_msgs::Empty landingmsg;
 
 	if(direction == 'w'){
@@ -56,25 +56,36 @@ void move(ros::Publisher mainPub, ros::Publisher landPub, ros::Publisher takeOff
 	} else if (direction == 's'){
 		ROS_INFO_STREAM("LEFT: X: -1.0");
 		msg.linear.x = -1.0;
+	} else if (direction == 'k'){
+		ROS_INFO_STREAM("UP: Z: 1.0");
+		msg.linear.z = 1.0;
+	} else if (direction == 'j'){
+		ROS_INFO_STREAM("DOWN: Z: -1.0");
+		msg.linear.z = -1.0;
+	} else if (direction == 'h'){
+		ROS_INFO_STREAM("STOP");
+	} else if (direction == 'l'){
+		ROS_INFO_STREAM("LAND");
+		landPub.publish(landingmsg);
+	} else if (direction == 't'){
+		ROS_INFO_STREAM("TAKEOFF");
+		takeOffPub.publish(landingmsg); //identical messages for each so we're using it again
+	} else if (direction == 'q'){
+		ROS_INFO_STREAM("TURN CLOCKWISE: -1.0");
+		msg.angular.z = -1.0;
+	} else if (direction == 'e'){
+		ROS_INFO_STREAM("TURN COUNTER CLOCKWISE: 1.0");
+		msg.angular.z = 1.0;
 	}
 
 	int i = 0;
 	while(ros::ok()){		
-		if(i < 3){
-			takeOffPub.publish(takeoffmsg);
-			ROS_INFO_STREAM("Published take off.");
-		}
 		mainPub.publish(msg);
 
 		ROS_INFO_STREAM("Published message.");
 		i++;
-	//	if(i > 50){
-	//		landPub.publish(landingmsg);
-	//		ROS_INFO_STREAM("Published landing.");		
-	//	}
+
 		someRate.sleep();
-		if(i > 10){
-			break;
-		}
+		break;	
 	}
 }
